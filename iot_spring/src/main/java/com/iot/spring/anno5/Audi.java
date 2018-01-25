@@ -1,0 +1,18 @@
+package com.iot.spring.anno5;
+
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+@Component("aaa")
+@Order(2)
+public class Audi implements Maker{
+
+	@Override
+	public void printName() {
+		System.out.println("아우디");
+		
+	}
+	
+	
+
+}
