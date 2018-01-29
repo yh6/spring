@@ -1,8 +1,12 @@
 package com.iot.spring;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Handles requests for the application home page.
@@ -34,6 +39,27 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+	}
+	
+	@RequestMapping(value = "/h", method = RequestMethod.GET)
+	public String home1(Locale locale, Model model) {
+		String json = "{\"key\":\"value\"}";
+		model.addAttribute("test","난 테스트입니다.");
+		model.addAttribute("text","난 텍스트입니다.");
+		return "home2";
+	}
+	@RequestMapping(value = "/h2", method = RequestMethod.GET)
+	@ResponseBody
+	public List<User> home2() {
+		User user = new User();
+		user.setName("홍길동");
+		user.setAge(30);
+		/*Map<String,String> map = new HashMap<String,String>();
+		map.put("name", "홍길동");*/
+		List<User> list = new ArrayList<User>();
+		list.add(user);
+		list.add(user);
+		return list;
 	}
 	
 }

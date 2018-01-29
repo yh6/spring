@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	<bean id="ex" class="com.iot.spring.sp02.Excute">
+		<constructor-arg ref="dog"></constructor-arg>
+			<property name="action">
+				<ref bean="cat" />
+		</property>		
+	</bean>
+		
+	<bean id="dog" class="com.iot.spring.sp02.Dog"></bean>
+	<bean id="cat" class="com.iot.spring.sp02.Cat"></bean>
+
+</beans>

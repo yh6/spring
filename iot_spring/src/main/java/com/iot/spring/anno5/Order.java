@@ -7,7 +7,7 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-@Named
+@Named("o1")
 public class Order {
 	@Autowired 
 	@Qualifier("kkk")

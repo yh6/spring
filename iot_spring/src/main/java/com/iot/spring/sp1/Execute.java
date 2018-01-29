@@ -22,5 +22,6 @@ public class Execute {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 		Execute e = (Execute)ac.getBean("ex");
 		e.printWorker();
+		//e.w.goTowork();
 	}
 }

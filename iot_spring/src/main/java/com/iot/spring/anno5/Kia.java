@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 
 @Component("kkk")
-@Order(1)
 //@Scope("prototype")-메뉴만들때사용적당
 public class Kia implements Maker{
 	
