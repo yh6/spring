@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>${title}</title>
 </head>
 <body>
-난 홈2예요<br>
-${test}<br>
-${text}<br>
+
+<a href="${root}/emp/list">사원리스트</a>
 </body>
 </html>

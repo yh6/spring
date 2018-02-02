@@ -7,11 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
-
+<h2>Error List</h2>
+<c:forEach items="${errorMsg}" var="oe">
+${oe}<br>
+</c:forEach>
 </body>
 </html>

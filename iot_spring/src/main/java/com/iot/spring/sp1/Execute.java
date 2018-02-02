@@ -19,7 +19,7 @@ public class Execute {
 		w.getOffWork();
 	}
 	public static void main(String[] args) {
-		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("beans6.xml");
 		Execute e = (Execute)ac.getBean("ex");
 		e.printWorker();
 		//e.w.goTowork();
