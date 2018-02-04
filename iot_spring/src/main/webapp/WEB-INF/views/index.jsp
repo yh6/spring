@@ -7,7 +7,23 @@
 <title>${title}</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp" flush="false" />
 
-<a href="${root}/emp/list">사원리스트</a>
+  <div id="headerwrap">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-lg-offset-3">
+					<h4>HELLO PEOPLE, MY NAME IS</h4>
+					<h1>PAUL SILVA</h1>
+					<h4>WEB DESIGNER, DEVELOPER & GAME ADDICT</h4>
+				</div>
+			</div>
+	    </div> 
+	</div>
+  
+  
+
+
+
 </body>
 </html>
