@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.iot.spring.service.EmpService;
 import com.iot.spring.vo.Emp;
@@ -32,21 +33,17 @@ public class EmpController {
 	}
 	
 	@RequestMapping(value="/insert",method=RequestMethod.GET)
-	public String insertEmp(
-			@Valid Emp empDTO,Errors e,
-		//	@RequestParam("empName") String empName,
-		//	@RequestParam("empSal") int empSal,
-		//	@RequestParam Map<String, String>map,			
-			Model m) {
+	public ModelAndView insertEmp(
+			@Valid Emp emp,Errors e,	
+			ModelAndView m) throws Exception {
+		logger.info("insert result =>{}",emp);
 		if(e.hasErrors()) {
 			logger.info("error =>{}",e);
-			m.addAttribute("errorMsg",e.getAllErrors());
-			return "error/error";
+			throw new Exception(e.getAllErrors().get(0).getDefaultMessage());
 		}
-		es.insertEmp(empDTO);
-	 //  logger.info("empName=>{}", empName);
-		//logger.info("empSal=>{}", empSal);
-	 logger.info("insert result => {}", empDTO);
-		return "emp/write";
+			m.setViewName("emp/write");
+			return m;
+		}
+		
 	}
-}
+

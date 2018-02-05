@@ -7,7 +7,6 @@
 <title>${title}</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/common/header.jsp" flush="false" />
 
   <div id="headerwrap">
 	    <div class="container">
