@@ -9,14 +9,24 @@
 <c:set var="ver" value="?version=1.0.0"/>
 <c:set var="rPath" value="${root}/resources"/>
 <c:set var="pPath" value="${root}/path"/>
+<c:set var="dPath" value="${root}/dx"/>
+
 <script src="${rPath}/ui/js/jquery-3.2.1.js${ver}"></script>
 <script src="${rPath}/ui/js/grid-obj.js${ver}"></script>
 <script src="${rPath}/ui/js/bootstrap.min.js${var}"></script>
+<script src="${rPath}/ui/js/common.js${var}"></script>
+<script src="${rPath}/ui/js/bootstrap-table.js${var}"></script>
+<script src="${rPath}/dx/dhtmlx.js${var}"></script>
+
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/bootstrap.min.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/bootstrap-theme.min.css${var}"/>
-<link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/assets.css.bootstrap.css${var}"/>
-<link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/assets.css.font-awesome.min.css${var}"/>
-<link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/assets.css.style.css${var}"/>
+<link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/menu.css${var}"/>
+<link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/reset.css${var}"/>
+<link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/style.css${var}"/>
+<link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/bootstrap-table.css${var}"/>
+<link rel="stylesheet" type="text/css" href="${root}/resources/dx/dhtmlx.css${var}"/>
+
+
 
 
 

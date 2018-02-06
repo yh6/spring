@@ -20,7 +20,7 @@
 			</tr>
 			<c:forEach items="${empList}" var="emp">
 				<tr >
-					<td onclick="" style="cursor:hand">${emp.empNO}</td>
+					<td>${emp.empNO}</td>
 
 					<td>${emp.empName}</td>
 

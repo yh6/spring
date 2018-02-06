@@ -7,42 +7,43 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.iot.spring.dao.EmpDAO;
+import com.iot.spring.dao.UserDAO;
 import com.iot.spring.vo.Emp;
+import com.iot.spring.vo.UserInfo;
 
 @Repository
-public class EmpDAOImpl implements EmpDAO {
+public class UserDAOImpl implements UserDAO {
+
 	@Autowired
 	private SqlSessionFactory ssf;
-	
+
 	@Override
-	public List<Emp> selectEmpList() {
+	public List<UserInfo> selectUserList() {
 		SqlSession ss = ssf.openSession();
-		List<Emp> empList = ss.selectList("emp.selectEmp");	
+		List<UserInfo> userList = ss.selectList("user.selectUser");
 		ss.close();
-		return empList;
+		return userList;
 	}
 
 	@Override
-	public Emp selectEmp() {
+	public UserInfo selectUser() {
 		return null;
 	}
 
 	@Override
-	public int insertEmp(Emp e) {
-		SqlSession ss = ssf.openSession();
-		int result = ss.insert("emp.insertEmp",e);
-		return result;
-	}
-
-	@Override
-	public int updateEmp() {
+	public int insertUser() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int deleteEmp() {
+	public int updateUser() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteUser() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

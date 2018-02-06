@@ -11,6 +11,7 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="com.iot.spring.vo.Emp" alias="emp" />
+		<typeAlias type="com.iot.spring.vo.UserInfo" alias="user" />
 	</typeAliases>
 
 	<mappers>

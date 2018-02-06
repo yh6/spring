@@ -28,12 +28,12 @@ public class LogPrintAspect {
 
 	private static final Logger log = LoggerFactory.getLogger(LogPrintAspect.class);
 
-	@Before("execution(* com.iot.spring.controller.*Controller.*(..))")
+	@Before("execution(* com.iot.spring.controller.EmpController.*(..))")
 	public void beforeLog(JoinPoint jp) {
 		log.info("@Before =>{}", jp);
 	}
 
-	@Around("execution(* com.iot.spring.controller.*Controller.*(..))")
+	@Around("execution(* com.iot.spring.controller.EmpController.*(..))")
 	public Object aroundLog(ProceedingJoinPoint pjp) throws JsonParseException, JsonMappingException, IOException {
 		log.info("@Around begin");
 		Object obj = null;
@@ -54,7 +54,7 @@ public class LogPrintAspect {
 		return obj;
 	}
 
-	@After("execution(* com.iot.spring.controller.*Controller.*(..))")
+	@After("execution(* com.iot.spring.controller.EmpController.*(..))")
 	public void afterLog(JoinPoint jp) {
 		log.info("@After =>{}", jp);
 	}

@@ -42,7 +42,7 @@ public class UrlController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET) 
 	public String home(Locale locale, Model model) {
-		model.addAttribute("userList", ssf.openSession().selectList("user.selectuser"));
+		//model.addAttribute("userList", ssf.openSession().selectList("user.selectuser"));
 		model.addAttribute("title","IOT-SPRING-2");
 		return "index";
 	}

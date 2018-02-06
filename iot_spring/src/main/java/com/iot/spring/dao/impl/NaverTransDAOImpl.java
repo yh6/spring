@@ -36,13 +36,13 @@ public class NaverTransDAOImpl implements NaverTransDAO{
 	public void setTarget(String target) {
 		this.target = target;
 	}
-	
-	public String getText() throws IOException {
+	@Override
+	public String getText(String text) throws IOException {
 		HttpURLConnection con = null;
         BufferedReader br =null;
 
         try {
-            String text = URLEncoder.encode("text", "UTF-8");
+            String text1 = URLEncoder.encode(text, "UTF-8");
             URL url = new URL(this.url);
            con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("POST");
@@ -50,7 +50,7 @@ public class NaverTransDAOImpl implements NaverTransDAO{
             con.setRequestProperty("X-Naver-Client-Secret", this.clientSecret);
             con.setRequestProperty("Content-Type", this.contentType);
             // post request
-            String postParams = "source=" +this.source + "&target=" + this.target + "&text=" + text;
+            String postParams = "source=" +this.source + "&target=" + this.target + "&text=" + text1;
             con.setDoOutput(true);
             DataOutputStream wr = new DataOutputStream(con.getOutputStream());
             wr.writeBytes(postParams);
@@ -80,8 +80,9 @@ public class NaverTransDAOImpl implements NaverTransDAO{
         	}
     }
         return "";
-	}
 
 	
-
+	
+	}
+	
 }
