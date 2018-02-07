@@ -15,7 +15,7 @@
 		mygrid.setInitWidths("50,148,200");
 		mygrid.setColAlign("left,left,left");
 		mygrid.setColTypes("ro,ed,ed");
-		mygrid.setSorting("int,str,str");
+		mygrid.setColSorting("int,str,int");
 		mygrid.setColumnIds("empNO,empName,empSal");
 		mygrid.init();
 

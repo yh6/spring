@@ -31,7 +31,7 @@ public class EmpDAOImpl implements EmpDAO {
 	@Override
 	public int insertEmp(Emp e) {
 		SqlSession ss = ssf.openSession();
-		int result = ss.insert("emp.insertEmp",e);
+		int result = ss.insert("emp.insertEmp",e); 
 		return result;
 	}
 

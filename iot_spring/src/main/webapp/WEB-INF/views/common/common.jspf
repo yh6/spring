@@ -25,6 +25,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/style.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/bootstrap-table.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/dx/dhtmlx.css${var}"/>
+<link rel="stylesheet" type="text/css" href="${root}/resources/dx/fonts/font_roboto/roboto.css${var}"/>
 
 
 
