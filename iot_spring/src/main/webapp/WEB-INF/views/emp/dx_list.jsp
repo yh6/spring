@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="gridbox" style="width: 410px, height:400px;"></div>
+	<div id="gridbox" style="width:410px;height:400px;"></div> 
 	<script>
 		var mygrid = new dhtmlXGridObject('gridbox');
 		mygrid.setImagePath("${dPath}/imgs/");

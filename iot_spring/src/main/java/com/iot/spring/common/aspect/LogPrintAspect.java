@@ -28,12 +28,12 @@ public class LogPrintAspect {
 
 	private static final Logger log = LoggerFactory.getLogger(LogPrintAspect.class);
 
-	@Before("execution(* com.iot.spring.controller.EmpController.*(..))")
+	@Before("execution(* com.iot.spring.controller.*Controller.*(..))")
 	public void beforeLog(JoinPoint jp) {
 		log.info("@Before =>{}", jp);
 	}
 
-	@Around("execution(* com.iot.spring.controller.EmpController.*(..))")
+	@Around("execution(* com.iot.spring.controller.*Controller.*(..))")
 	public Object aroundLog(ProceedingJoinPoint pjp) throws JsonParseException, JsonMappingException, IOException {
 		log.info("@Around begin");
 		Object obj = null;
@@ -41,20 +41,16 @@ public class LogPrintAspect {
 		try {
 			obj = pjp.proceed();
 		} catch (Throwable e) {
-			log.error("error=>{}", e);
+			log.error("@Around error=>{}", e);
 			ModelAndView mav = new ModelAndView("error/error");
-
-			String eMsg = ntd.getText(e.getMessage());
-			ObjectMapper om = new ObjectMapper();
-			NaverMsg nm = om.readValue(eMsg, NaverMsg.class);
-			mav.addObject("errorMsg", nm.getMessage().getResult().getTranslatedText());
-			return nm;
+			mav.addObject("errorMsg",e.getMessage());			
+			return mav;
 		}
 		log.info("@Around end, RunTime : {} ms", (System.currentTimeMillis() - startTime));
 		return obj;
 	}
 
-	@After("execution(* com.iot.spring.controller.EmpController.*(..))")
+	@After("execution(* com.iot.spring.controller.*Controller.*(..))")
 	public void afterLog(JoinPoint jp) {
 		log.info("@After =>{}", jp);
 	}

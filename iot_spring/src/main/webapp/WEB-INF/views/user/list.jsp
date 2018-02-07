@@ -35,6 +35,7 @@ $(document).ready(function(){
 					<th data-field="address">주소</th>
 					
 				</tr>
+				<tbody id="tBody"></tbody>
 			</thead>
 		</table>
 	</div>
