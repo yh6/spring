@@ -9,9 +9,9 @@ public interface UserInfoDAO {
 
 	public List<UserInfoVO> selectUserInfoList();
 	public UserInfoVO selectUserInfo();
-	public int insertUserInfo();
-	public int updateUserInfo();
-	public int deleteUserInfo();
+	public int insertUserInfo(UserInfoVO ci);
+	public int updateUserInfo(UserInfoVO ci);
+	public int deleteUserInfo(UserInfoVO ci);
 	
 
 }

@@ -25,18 +25,18 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	@Override
-	public int insertUserInfo() {
-		return udao.insertUserInfo();
+	public int insertUserInfo(UserInfoVO ci) {
+		return udao.insertUserInfo(ci);
 	}
 
 	@Override
-	public int updateUserInfo() {
-		return udao.updateUserInfo();
+	public int updateUserInfo(UserInfoVO ci) {
+		return udao.updateUserInfo(ci);
 	}
 
 	@Override
-	public int deleteUserInfo() {
-		return udao.deleteUserInfo();
+	public int deleteUserInfo(UserInfoVO ci) {
+		return udao.deleteUserInfo(ci);
 	}
 	
 	

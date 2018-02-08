@@ -3,6 +3,7 @@ package com.iot.spring.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +20,31 @@ import com.iot.spring.vo.Emp;
 import com.iot.spring.vo.UserInfoVO;
 
 @Controller
-@RequestMapping("/userinfo")
+@RequestMapping("/userInfo")
 public class UserInfoController {
 	private static final Logger log = LoggerFactory.getLogger(UserInfoController.class);
 	
 	@Autowired
 	private UserInfoService us;
-	
+		
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public String getUserInfoList(Model m) {
+	public @ResponseBody List<UserInfoVO> getUserInfoListAjax(Model m) {
 		List<UserInfoVO> userInfoList = us.getUserInfoList();
-		m.addAttribute("userInfoList",userInfoList);	
-		return "userinfo/list";
+		return userInfoList;
 	}
-	
-	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public @ResponseBody List<UserInfoVO> getEmpListAjax(Model m) {
-		List<Emp> empList = es.getEmpList();
-		return empList;
+	@RequestMapping(value="/insert", method=RequestMethod.GET)
+	public @ResponseBody List<UserInfoVO> getUserInfoInsertAjax(Model m) {
+		List<UserInfoVO> userInfoList = us.getUserInfoList();
+		return userInfoList;
+	}
+	@RequestMapping(value="/update", method=RequestMethod.GET)
+	public @ResponseBody List<UserInfoVO> getUserInfoUpdateAjax(Model m) {
+		List<UserInfoVO> userInfoList = us.getUserInfoList();
+		return userInfoList;
+	}
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public @ResponseBody List<UserInfoVO> getUserInfoDeleteAjax(Model m) {
+		List<UserInfoVO> userInfoList = us.getUserInfoList();
+		return userInfoList;
 	}
 }

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div><br><br><br><br><br></div>
 <h2>Error Page</h2>
 ${errorMsg}
 

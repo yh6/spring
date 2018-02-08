@@ -17,10 +17,12 @@
 <script src="${rPath}/ui/js/common.js${var}"></script>
 <script src="${rPath}/ui/js/bootstrap-table.js${var}"></script>
 <script src="${rPath}/dx/dhtmlx.js${var}"></script>
+<script src="${rPath}/ui/js/modernizrn.js${var}"></script>
+<script src="${rPath}/ui/js/main.js${var}"></script>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700' rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/bootstrap.min.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/bootstrap-theme.min.css${var}"/>
-<link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/menu.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/reset.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/style.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/bootstrap-table.css${var}"/>
@@ -29,7 +31,6 @@
 
 
 
- <script src="codebase/dhtmlx.js" type="text/javascript"></script>
-    <link rel="STYLESHEET" type="text/css" href="codebase/dhtmlx.css">
+
 
 

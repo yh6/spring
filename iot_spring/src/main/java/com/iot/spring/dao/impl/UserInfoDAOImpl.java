@@ -26,27 +26,28 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 
 	@Override
 	public UserInfoVO selectUserInfo() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int insertUserInfo() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertUserInfo(UserInfoVO ci) {		
+		SqlSession ss = ssf.openSession();
+		int result = ss.insert("userInfo.insertUserInfo",ci); 
+		return result;
+	}
+	
+	@Override
+	public int updateUserInfo(UserInfoVO ci) {
+		SqlSession ss = ssf.openSession();
+		int result = ss.insert("userInfo.updateUserInfo",ci); 
+		return result;
 	}
 
 	@Override
-	public int updateUserInfo() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteUserInfo(UserInfoVO ci) {
+		SqlSession ss = ssf.openSession();
+		int result = ss.insert("userInfo.deleteUserInfo",ci); 
+		return result;
 	}
-
-	@Override
-	public int deleteUserInfo() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	
 }

@@ -5,35 +5,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head><script>
-$(document).ready(function(){
-	var au = new AjaxUtil("${root}/userinfo/list", null, "GET", "json");
-	function callback(res) {
-		console.log(res);
-		$("#userInfoTable").bootstrapTable({
-			data : res
-		});
-	}
-	au.setCallbackSuccess(callback);
-	au.send();
-});
-</script>
+</head>
 <body>
-<div class="container">
-		<table data-toggle="table" id="userInfoTable" class="table table-bordered ">
-		<thead>
-			<tr>
-				<th data-field="uNo">번호</th>
-				<th data-field="uName">이름</th>
-				<th data-field="uID">아이디</th>
-				<th data-field="uPwd">비밀번호</th>
-				<th data-field="uEmail">이메일</th>
-				<th data-field="admin">관리</th>						
-			</tr>
-			<tbody id="tBody"></tbody>
-		</thead>
-		</table>
-	</div>
+	<div id="gridbox" style="width:410px;height:400px;"></div> 
+	<script>
+		var mygrid = new dhtmlXGridObject('gridbox');
+		mygrid.setImagePath("${dPath}/imgs/");
+		mygrid.setHeader("번호,이름,아이디,비밀번호,이메일,관리");
+		mygrid.setInitWidths("50,148,200");
+		mygrid.setColAlign("left,left,left");
+		mygrid.setColTypes("ro,ed,ed,ro,ed,ro");
+		mygrid.setColSorting("int,str,str,str,str,int");
+		mygrid.setColumnIds("uNo,uName,uID,uEmail,admin");
+		mygrid.init();
+
+		                    
+		var au = new AjaxUtil("${root}/userInfo/list", null, "GET", "json");
+		function callback(res) {
+			console.log(res);
+			mygrid.parse({data : res}, "js");
+		}
+		au.setCallbackSuccess(callback);
+		au.send();
+	</script>
+
+
 
 
 </body>

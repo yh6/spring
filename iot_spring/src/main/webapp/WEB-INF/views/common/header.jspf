@@ -1,69 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 	
+	<title>IOT-2</title>
+</head>
 <body>
+	<header>
+		<a id="cd-logo" href="#0"><img src="img/cd-logo.svg" alt="Homepage"></a>
+		<nav id="cd-top-nav">
+			<ul>
+				<li><a href="${root}/db/dx_form">SQL</a></li>
+				<li><a href="#0">Login</a></li>
+			</ul>
+		</nav>
+		<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
+	</header>
 
 
-   <nav><div class="menu-btn"></div>
- <ul class="menu">
-  <li><a href="">LIST</a>
-   <ul>
-    <li><a href="${root}/emp/list">사원리스트</a></li>
-    <li><a href="#">Mobiles</a>
-     <ul>
-      <li><a href="#">Apple</a></li>
-      <li><a href="#">Nokia</a>
-       <ul>
-       <li><a href="#">Asha</a></li>
-       <li><a href="#">Lumia</a>
-       <ul>
-        <li><a href="#">Lumia 520</a></li>
-        <li><a href="#">Lumia 720</a></li>
-       </ul>
-       </li>
-      </ul>
-      </li>
-     </ul>
-    </li>
-    <li><a href="#">Cameras</a></li>
-   </ul>
-  </li>
-  <li><a href="#">Men</a>
-   <ul>
-    <li><a href="#">Clothing</a>
-     <ul>
-      <li><a href="#">New</a></li>
-      <li><a href="#">All</a></li>
-     </ul>
-    </li>
-    <li><a href="#">Footwear</a></li>
-   </ul>
-  </li>
-  <li><a href="#">LOGIN</a></li>
-  <li><a href="#">HOME</a></li>
- </ul>
- </nav>
+	<nav id="cd-lateral-nav">
+		<ul class="cd-navigation">
+			<li class="item-has-children">
+				<a href="#0">Services</a>
+				<ul class="sub-menu">
+					<li><a href="#0">Brand</a></li>
+					<li><a href="#0">Web Apps</a></li>
+					<li><a href="#0">Mobile Apps</a></li>
+				</ul>
+			</li> <!-- item-has-children -->
 
-  
-</body>
+			<li class="item-has-children">
+				<a href="#0">Connector</a>
+				<ul class="sub-menu">
+					<li><a href="#0">connection</a></li>
+					<li><a href="${root}userinfo/list">userinfo</a></li>				
+				</ul>
+			</li> <!-- item-has-children -->
+
+			<li class="item-has-children">
+				<a href="#0">List</a>
+				<ul class="sub-menu">
+					<li><a href="${root}/emp/list">사원리스트</a></li>
+					<li><a href="#0">New York</a></li>
+					<li><a href="#0">Milan</a></li>
+					<li><a href="#0">Paris</a></li>
+				</ul>
+			</li> <!-- item-has-children -->
+		</ul> <!-- cd-navigation -->
+
+		<ul class="cd-navigation cd-single-item-wrapper">
+			<li><a href="#0">Tour</a></li>
+			<li><a href="#0">Register</a></li>
+			<li><a href="#0">Pricing</a></li>
+			<li><a href="#0">Support</a></li>
+		</ul> <!-- cd-single-item-wrapper -->
+		<ul class="cd-navigation cd-single-item-wrapper">	
+			<li><a href="#0">FAQ</a></li>		
+		</ul> <!-- cd-single-item-wrapper -->	
+	</nav>
+	
 <script>
-/*$(document).ready(function(){
-	 $(".menu li a").each(function() {
-	  if ($(this).next().length > 0) {
-	   $(this).addClass("parent");
-	  };
-	 })
-	 var menux = $('.menu li a.parent');
-	 $( '<div class="more"><img src="http://thecodeblock.com/wp-content/uploads/btn-hamburger.png" alt=""></div>' ).insertBefore(menux);
-	 $('.more').click(function(){
-	   $(this).parent('li').toggleClass('open');
-	 });
-	 $('.menu-btn').click(function(){
-	   $('nav').toggleClass('menu-open');
-	 });
-	 });*/
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	ga('create', 'UA-48014931-1', 'codyhouse.co');
+  	ga('send', 'pageview');
+
+  	jQuery(document).ready(function($){
+  		$('.close-carbon-adv').on('click', function(event){
+  			event.preventDefault();
+  			$('#carbonads-container').hide();
+  		});
+  	});
 </script>
+  
 
 </body>
 </html>
