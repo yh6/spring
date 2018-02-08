@@ -12,7 +12,7 @@ public interface EmpService {
 	public List<Emp> getEmpList();
 	public Emp getEmp();
 	public int insertEmp(Emp e);
-	public int updateEmp();
-	public int deleteEmp();
+	public int updateEmp(Emp e);
+	public int deleteEmp(Emp e);
 
 }

@@ -21,13 +21,32 @@
          height: 80px;
       }
 </style>
-
 <script>
-var bodyLayout;
+var bodyLayout, aLay, dbTree;
+function callback(res){
+	   dbTree = aLay.attachTreeView({
+	       items: res.dbList
+	   });
+	   dbTree.setImagePath("${rPath}/dx/skins/web/imgs/dhxtree_web/");
+	   dbTree.enableDragAndDrop(true);
+	}
+	
 dhtmlxEvent(window,"load",function(){
-	bodyLayout = new dhtmlXLayoutObject(document.body,"4C");
-	bodyLayout.cells("a").setWidth(300);
-	bodyLayout.cells("a").setText("Connection Info List");
+   bodyLayout = new dhtmlXLayoutObject(document.body,"3L");
+   aLay = bodyLayout.cells("a");
+   aLay.setWidth(300);
+   aLay.setText("Connection Info List");
+   var aToolbar = aLay.attachToolbar();
+   aToolbar.addButton("adddb",1,"add Connector");
+   aToolbar.addButton("condb",2,"Connection");
+   aToolbar.attachEvent("onClick",function(id){
+      alert(id);
+   })
+   var au = new AjaxUtil("${root}/connection/db_list",null,"get","json");
+   au.setCallbackSuccess(callback);
+   au.send(); 
+ 
+
 })
 </script>
 <body>

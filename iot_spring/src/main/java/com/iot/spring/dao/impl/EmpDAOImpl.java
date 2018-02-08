@@ -36,15 +36,17 @@ public class EmpDAOImpl implements EmpDAO {
 	}
 
 	@Override
-	public int updateEmp() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateEmp(Emp e) {
+		SqlSession ss = ssf.openSession();
+		int result = ss.insert("emp.updateEmp",e); 
+		return result;
 	}
 
 	@Override
-	public int deleteEmp() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteEmp(Emp e) {
+		SqlSession ss = ssf.openSession();
+		int result = ss.insert("emp.deleteEmp",e); 
+		return result;
 	}
 
 }

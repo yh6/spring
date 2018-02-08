@@ -8,8 +8,7 @@
 </head>
 <body>
 <h2>Error Page</h2>
-<c:forEach items="${errorMsg}" var="oe">
-${oe}<br>
-</c:forEach>
+${errorMsg}
+
 </body>
 </html>

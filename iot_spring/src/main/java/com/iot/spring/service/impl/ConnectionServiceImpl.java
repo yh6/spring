@@ -8,11 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.iot.spring.dao.ConnectionDAO;
 import com.iot.spring.service.ConnectionService;
+import com.iot.spring.vo.ColumnVO;
 import com.iot.spring.vo.ConnectionInfoVO;
+import com.iot.spring.vo.TableVO;
 
 @Service
 public class ConnectionServiceImpl implements ConnectionService {
-
+ 
 	@Autowired
 	private ConnectionDAO cado;
 
@@ -37,6 +39,30 @@ public class ConnectionServiceImpl implements ConnectionService {
 			rMap.put("msg", "성공");
 		}
 
+	}
+
+	@Override
+	public List<Map<String, Object>> getDatabaseList() {
+		List<Map<String, Object>> dbList = cado.selectDatabaseList();
+		int idx=0;
+		for(Map<String,Object> mDb : dbList) {
+			mDb.put("id", ++idx);
+			mDb.put("text", mDb.get("Database"));
+			mDb.put("items", new Object[] {});
+		}
+		return dbList;
+	}
+
+	@Override
+	public List<TableVO> getTableList(String dbName) {
+		List<TableVO> tableList = cado.selectTableList(dbName);
+		return tableList;
+	}
+
+	@Override
+	public List<ColumnVO> getColumnList(Map tbName) {
+		List<ColumnVO> columnList = cado.selectColumnList(tbName);
+		return columnList;
 	}
 
 }

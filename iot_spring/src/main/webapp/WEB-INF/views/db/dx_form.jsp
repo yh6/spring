@@ -63,6 +63,7 @@ div#winVP {
 	
 	function callback(loader, res){
 		var res = JSON.parse(res);
+		
 		alert(res.msg);
 	}
 	

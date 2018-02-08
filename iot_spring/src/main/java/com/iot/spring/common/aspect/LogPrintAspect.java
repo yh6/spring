@@ -17,14 +17,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iot.spring.dao.impl.NaverTransDAOImpl;
+import com.iot.spring.dao.NaverTransDAO;
 import com.iot.spring.vo.NaverMsg;
 
 @Service
 @Aspect
 public class LogPrintAspect {
 	@Autowired
-	NaverTransDAOImpl ntd;
+	private NaverTransDAO ntd;
+	
+	@Autowired
+	private ObjectMapper om;
 
 	private static final Logger log = LoggerFactory.getLogger(LogPrintAspect.class);
 
@@ -43,7 +46,10 @@ public class LogPrintAspect {
 		} catch (Throwable e) {
 			log.error("@Around error=>{}", e);
 			ModelAndView mav = new ModelAndView("error/error");
-			mav.addObject("errorMsg",e.getMessage());			
+			String eMsg = ntd.getText(e.getMessage());
+			NaverMsg nm = om.readValue(eMsg, NaverMsg.class);
+			String msg = nm.getMessage().getResult().getTranslatedText();
+			mav.addObject("errorMsg", msg);			
 			return mav;
 		}
 		log.info("@Around end, RunTime : {} ms", (System.currentTimeMillis() - startTime));

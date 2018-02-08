@@ -43,6 +43,7 @@ public class EmpController {
 	public ModelAndView insertEmp(
 			@Valid Emp emp,Errors e,	
 			ModelAndView m) throws Exception {
+		
 		logger.info("insert result =>{}",emp);
 		if(e.hasErrors()) {
 			logger.info("error =>{}",e);

@@ -24,7 +24,9 @@
 	 <property name="source" value="en"></property>
 	 <property name="target" value="ko"></property>
 	 </bean>
+	 
 	<bean class="org.codehaus.jackson.map.ObjectMapper"/>
+	
 	<bean id="mav" class="org.springframework.web.servlet.ModelAndView">
 		<constructor-arg value="error/error"></constructor-arg>
 	</bean>

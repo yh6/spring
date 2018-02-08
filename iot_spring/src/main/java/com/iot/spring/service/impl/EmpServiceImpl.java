@@ -21,7 +21,6 @@ public class EmpServiceImpl implements EmpService {
 
 	@Override
 	public Emp getEmp() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -31,15 +30,13 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public int updateEmp() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateEmp(Emp e) {
+		return edao.updateEmp(e);
 	}
 
 	@Override
-	public int deleteEmp() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteEmp(Emp e) {
+		return edao.deleteEmp(e);
 	}
 
 }

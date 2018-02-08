@@ -11,6 +11,7 @@
   		insert into emp(empName, empSal) values(#{empName},#{empSal})
    </insert>
  
+
   </mapper>
   
  

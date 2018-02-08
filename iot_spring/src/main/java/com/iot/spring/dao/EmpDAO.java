@@ -9,7 +9,7 @@ public interface EmpDAO {
 	public List<Emp> selectEmpList();
 	public Emp selectEmp();
 	public int insertEmp(Emp e);
-	public int updateEmp();
-	public int deleteEmp();
+	public int updateEmp(Emp e);
+	public int deleteEmp(Emp e);
 	
 }

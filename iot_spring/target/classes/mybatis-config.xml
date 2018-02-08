@@ -13,6 +13,9 @@
 		<typeAlias type="com.iot.spring.vo.Emp" alias="emp" />
 		<typeAlias type="com.iot.spring.vo.UserInfo" alias="user" />
 		<typeAlias type="com.iot.spring.vo.ConnectionInfoVO" alias="ci" />
+		<typeAlias type="com.iot.spring.vo.TableVO" alias="tvo" />
+		<typeAlias type="com.iot.spring.vo.ColumnVO" alias="cvo" />
+		<typeAlias type="com.iot.spring.vo.UserInfoVO" alias="uvo" />
 		
 	</typeAliases>
 
@@ -20,6 +23,7 @@
 		<mapper resource="sql/user.xml" />
 		<mapper resource="sql/emp.xml" />
 		<mapper resource="sql/connection_info.xml" />
+		<mapper resource="sql/user_info.xml" />
 		
 	</mappers>
 </configuration>

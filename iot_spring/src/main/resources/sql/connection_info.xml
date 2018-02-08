@@ -2,16 +2,57 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="connection">
-  	<select id="selectConnectionInfo"  parameterType="ci" resultType="ci">
-  		select ciName,ciUrl,ciPort,ciDatabase,ciUser,ciPwd,ciEtc from connection_info
-   </select>
-   
-   
-   <insert id="insertConnectionInfo"  parameterType="ci">
-  		insert into connection_info(ciName,ciUrl,ciPort,ciDatabase,ciUser,ciPwd,ciEtc) 
-  		values(#{ciName},#{ciUrl},#{ciPort},#{ciDatabase},#{ciUser},#{ciPwd},#{ciEtc})
-   </insert>
- 
+<mapper namespace="connection">
+	<select id="selectConnectionInfo" parameterType="ci" resultType="ci">
+		select ciNo ciName,ciUrl,ciPort,ciDatabase,ciUser,ciPwd,ciEtc,uID from
+		connection_info
+	</select>
 
-  </mapper>
+
+	<insert id="insertConnectionInfo" parameterType="ci">
+		insert into
+		connection_info(ciName,ciUrl,ciPort,ciDatabase,ciUser,ciPwd,ciEtc,uID)
+		values(#{ciName},#{ciUrl},#{ciPort},#{ciDatabase},#{ciUser},#{ciPwd},#{ciEtc},#{uID})
+	</insert>
+
+	<select id="selectDatabase" resultType="map">
+		show databases
+	</select>
+
+	<select id="selectTable" resultType="map" parameterType="String">
+		select
+		table_name as tableName,
+		table_comment as tableComment,
+		(data_length+index_length)/1024 as tableSize
+		from
+		information_schema.tables
+		where table_schema=#{dbName}
+		and
+		table_type='base table';
+	</select>
+
+	<select id="selectColumn" resultType="map" parameterType="String">
+		select
+		column_name as columnName, column_default as columnDefault,
+		is_nullable as nullable ,data_type as dataType,character_maximum_length as characterMaximumLength,
+		column_type as columnType,column_key as columnKey,column_comment as columnComment
+		from information_schema.columns
+		where table_schema=#{dbName}
+		and table_name=#{tbName}
+		order by ordinal_position;		
+	</select>
+	
+	<update id="updateConnectionInfo" parameterType="ci">
+		update from connection_info
+		set
+		ciName=#{ciName},ciUrl=#{ciUrl},ciPort=#{ciPort},ciUser=#{ciUser},
+		ciPwd=#{ciPwd},ciEtc=#{ciEtc},uID=#{uID}
+		where ciNo=#{ciNo}
+	</update>
+
+	<delete id="deleteConnectionInfo" parameterType="ci">
+		delete connection_info where ciNo=#{ciNo}
+	</delete>
+	
+
+</mapper>
