@@ -80,6 +80,7 @@ div#winVP {
 	<div class="controls">
 		<button onclick="setPopW(true)">오픈창</button>
 		<button onclick="setPopW(false)">닫아창</button>
+		
 	</div>
 </body>
 </html>

@@ -7,7 +7,7 @@ public class UserInfoVO {
 	private String uID;
 	private String uPwd;
 	private String uEmail;
-	private String admin;
+	private String admin; //char
 	public int getuNo() {
 		return uNo;
 	}

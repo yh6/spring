@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.iot.spring.dao.UserInfoDAO;
-import com.iot.spring.vo.Emp;
 import com.iot.spring.vo.UserInfoVO;
 
 @Repository
@@ -25,29 +24,39 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	}
 
 	@Override
-	public UserInfoVO selectUserInfo() {
-		return null;
+	public UserInfoVO selectUserInfo(UserInfoVO ui) {
+		SqlSession ss = ssf.openSession();
+		UserInfoVO user = ss.selectOne("userInfo.selectUserInfo", ui);	
+		ss.close();
+		return user;
 	}
 
 	@Override
-	public int insertUserInfo(UserInfoVO ci) {		
+	public int insertUserInfo(UserInfoVO ui) {		
 		SqlSession ss = ssf.openSession();
-		int result = ss.insert("userInfo.insertUserInfo",ci); 
+		int result = ss.insert("userInfo.insertUserInfo",ui); 
 		return result;
 	}
 	
 	@Override
-	public int updateUserInfo(UserInfoVO ci) {
+	public int updateUserInfo(UserInfoVO ui) {
 		SqlSession ss = ssf.openSession();
-		int result = ss.insert("userInfo.updateUserInfo",ci); 
+		int result = ss.insert("userInfo.updateUserInfo",ui); 
 		return result;
 	}
 
 	@Override
-	public int deleteUserInfo(UserInfoVO ci) {
+	public int deleteUserInfo(UserInfoVO ui) {
 		SqlSession ss = ssf.openSession();
-		int result = ss.insert("userInfo.deleteUserInfo",ci); 
+		int result = ss.insert("userInfo.deleteUserInfo",ui); 
 		return result;
 	}
-	
+	@Override
+	public int checkUser(UserInfoVO ui) {
+		int result = 0;
+		SqlSession ss = ssf.openSession();
+		 result = ss.selectOne("userInfo.checkUser",ui); 
+		return result;
+		
+	}	
 }

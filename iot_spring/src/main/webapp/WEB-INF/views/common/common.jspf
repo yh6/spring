@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="/WEB-INF/views/common/header.jspf"%>    
-
+<c:set var="isLogin" value="${(empty sessionScope.isLogin)?false:sessionScope.isLogin}"/>
 <c:set var="root" value="${pageContext.request.contextPath}"></c:set>
 <c:set var="ver" value="?version=1.0.0"/>
 <c:set var="rPath" value="${root}/resources"/>
@@ -19,8 +19,8 @@
 <script src="${rPath}/dx/dhtmlx.js${var}"></script>
 <script src="${rPath}/ui/js/modernizrn.js${var}"></script>
 <script src="${rPath}/ui/js/main.js${var}"></script>
-<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700' rel='stylesheet' type='text/css'>
 
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/bootstrap.min.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/bootstrap-theme.min.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/reset.css${var}"/>
@@ -28,8 +28,10 @@
 <link rel="stylesheet" type="text/css" href="${root}/resources/ui/css/bootstrap-table.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/dx/dhtmlx.css${var}"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/dx/fonts/font_roboto/roboto.css${var}"/>
-
-
+<!-- Chrome, Safari, IE -->
+<link rel="shortcut icon" href="${rPath}/imgs/favicon.png">
+<!-- Firefox, Opera (Chrome and Safari say thanks but no thanks) -->
+<link rel="icon" href="${rPath}/imgs/favicon.png">
 
 
 

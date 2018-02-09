@@ -13,8 +13,8 @@
 		<a id="cd-logo" href="#0"><img src="img/cd-logo.svg" alt="Homepage"></a>
 		<nav id="cd-top-nav">
 			<ul>
-				<li><a href="${root}/db/dx_form">SQL</a></li>
-				<li><a href="#0">Login</a></li>
+				<li><a href="${root}/path/db/dx_form">SQL</a></li>
+				<li><a href="${root}/path/userinfo/login">Login</a></li>
 			</ul>
 		</nav>
 		<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
@@ -36,7 +36,7 @@
 				<a href="#0">Connector</a>
 				<ul class="sub-menu">
 					<li><a href="#0">connection</a></li>
-					<li><a href="${root}userinfo/list">userinfo</a></li>				
+					<li><a href="${root}/path/userinfo/list">userinfo</a></li>				
 				</ul>
 			</li> <!-- item-has-children -->
 

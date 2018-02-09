@@ -28,4 +28,6 @@ public class UserController {
 		List<UserInfo> userList = us.getUserList();
 		return userList;
 	}
+	
+	
 }
