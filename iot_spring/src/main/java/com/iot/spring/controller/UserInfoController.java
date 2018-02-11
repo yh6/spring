@@ -47,7 +47,7 @@ public class UserInfoController {
 		map.put("loginOk", false);
 		map.put("msg", "로그인실패");
 		if(ui!=null) {	
-			hs.setAttribute("user", ui);
+			hs.setAttribute("userInfo", ui);
 			hs.setAttribute("isLogin", true);
 			map.put("msg", "로그인성공");	
 			map.put("loginOk", true);
@@ -62,7 +62,7 @@ public class UserInfoController {
 		return map;
 	}
 	
-	@RequestMapping(value = "/list", method = RequestMethod.POST)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public @ResponseBody List<UserInfoVO> getUserInfoList(UserInfoVO ui){
 		return us.getUserInfoList(ui);
 	}

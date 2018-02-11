@@ -18,10 +18,9 @@ div#winVP {
 <script>
 	var winF, popW;
 	$(document).ready(function() {
-		alert("${sessionScope.isLogin}");
 		winF = new dhtmlXWindows();
 		winF.attachViewportTo("winVP");
-		popW = winF.createWindow("win1", 20, 30, 320, 300);
+		popW = winF.createWindow("win1", 30, 50, 320, 300);
 		//popW.hide(); 
 		popW.button("close").hide();
 		popW.button("minmax").hide();
@@ -90,16 +89,11 @@ div#winVP {
 			if (res.loginOk) {
 				document.location.href = "${root}/path/db/main";
 			}
-
+		}else{
+			console.log(res);
 		}
 	}
-	function setPopW(onOff) {
-		if (onOff) {
-			popW.show();
-			return;
-		}
-		popW.hide();
-	}
+	
 </script>
 <body>
 	<div id="winVP"></div>

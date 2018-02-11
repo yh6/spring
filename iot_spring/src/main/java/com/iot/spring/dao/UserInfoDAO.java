@@ -7,12 +7,12 @@ import com.iot.spring.vo.UserInfoVO;
 
 public interface UserInfoDAO {
 
-	public List<UserInfoVO> selectUserInfoList();		
+	public List<UserInfoVO> selectUserInfoList(UserInfoVO ui);		
 	public int insertUserInfo(UserInfoVO ui);
 	public int updateUserInfo(UserInfoVO ui);
 	public int deleteUserInfo(UserInfoVO ui);	
-	public int checkUser(UserInfoVO ui);
-	public UserInfoVO selectUserInfo(UserInfoVO ui);
+	public int checkUserInfo(UserInfoVO ui);
+	UserInfoVO selectUserInfo(UserInfoVO ui);
 
 
 }

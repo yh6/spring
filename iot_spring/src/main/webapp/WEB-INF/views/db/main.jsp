@@ -14,14 +14,16 @@
         margin: 0px;      /*hides the body's scrolls*/
     }      
     div.controls {
-         margin: 0px 10px;
+         margin: 50px 10px;
          font-size: 14px;
          font-family: Tahoma;
          color: #404040;
          height: 80px;
       }
 </style>
+
 <script>
+
 var bodyLayout, aLay, dbTree;
 function callback(res){
 	   dbTree = aLay.attachTreeView({
@@ -50,6 +52,5 @@ dhtmlxEvent(window,"load",function(){
 })
 </script>
 <body>
-
 </body>
 </html>

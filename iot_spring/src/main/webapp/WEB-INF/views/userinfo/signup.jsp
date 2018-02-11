@@ -7,9 +7,7 @@
 <title>회원 가입</title>
 </head>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>${title}</title>
+
 </head>
 <style>
 div#winVP {
@@ -22,7 +20,6 @@ div#winVP {
 <script>
 	var winF, popW;
 	$(document).ready(function() {
-		alert("${sessionScope.isLogin}");
 		winF = new dhtmlXWindows();
 		winF.attachViewportTo("winVP");
 		popW = winF.createWindow("win1", 20, 30, 380, 500);
@@ -86,7 +83,7 @@ div#winVP {
 			blockOffset : 0,
 			list : [ {
 				type : "button",
-				name : "signupBtn",
+				name : "savaBtn",
 				value : "회원가입"
 			}, {
 				type : "button",
@@ -94,7 +91,7 @@ div#winVP {
 				value : "취소"
 			}, {
 				type : "button",
-				name : "goBack",
+				name : "signup",
 				value : "돌아가기"
 			}
 
@@ -103,14 +100,13 @@ div#winVP {
 		var form = popW.attachForm(formObj, true);
 		
 		form.attachEvent("onButtonClick", function(id) {
-			if (id == "signupBtn") {
+			if (id == "savaBtn") {
 				if (form.validate()) {
 					form.send("${root}/userInfo/signup", "post", callback);
 				}
 			} else if (id == "cancelBtn") {
 				form.clear();
-			} else if (id == "goBack") {
-				document.location.href = "${root}/userInfo/login";
+			} else if (id == "") {
 			}
 		});
 	})
@@ -121,20 +117,15 @@ div#winVP {
 		if (loader.xmlDoc.status == 200) {
 			var res = JSON.parse(res);
 			alert(res.msg);
-			if (res.loginOk) {
-				document.location.href = "${root}/path/db/main";
+			if (res.signupOk) {
+				document.location.href = "${root}";
 			}
-
+		}else{
+			console.log(res);
 		}
 	}
 
-	function setPopW(onOff) {
-		if (onOff) {
-			popW.show();
-			return;
-		}
-		popW.hide();
-	}
+	
 </script>
 <body>
 	<div id="winVP"></div>

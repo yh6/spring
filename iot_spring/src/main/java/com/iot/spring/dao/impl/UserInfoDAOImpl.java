@@ -16,16 +16,16 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	private SqlSessionFactory ssf;
 
 	@Override
-	public List<UserInfoVO> selectUserInfoList() {
+	public List<UserInfoVO> selectUserInfoList(UserInfoVO ui) {
 		SqlSession ss = ssf.openSession();
-		List<UserInfoVO> userInfoList = ss.selectList("userInfo.selectUserInfo");	
+		List<UserInfoVO> userInfoList = ss.selectList("userInfo.selectUserInfo",ui);	
 		ss.close();
 		return userInfoList;
 	}
 
 	@Override
 	public UserInfoVO selectUserInfo(UserInfoVO ui) {
-		SqlSession ss = ssf.openSession();
+		final SqlSession ss = ssf.openSession();
 		UserInfoVO user = ss.selectOne("userInfo.selectUserInfo", ui);	
 		ss.close();
 		return user;
@@ -35,6 +35,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	public int insertUserInfo(UserInfoVO ui) {		
 		SqlSession ss = ssf.openSession();
 		int result = ss.insert("userInfo.insertUserInfo",ui); 
+		ss.close();
 		return result;
 	}
 	
@@ -52,10 +53,11 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		return result;
 	}
 	@Override
-	public int checkUser(UserInfoVO ui) {
+	public int checkUserInfo(UserInfoVO ui) {
 		int result = 0;
 		SqlSession ss = ssf.openSession();
-		 result = ss.selectOne("userInfo.checkUser",ui); 
+		 result = ss.selectOne("userInfo.checkUserInfo",ui); 
+		 ss.close();
 		return result;
 		
 	}	

@@ -17,11 +17,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	@Override
 	public List<UserInfoVO> getUserInfoList(UserInfoVO ui) {
-		return udao.selectUserInfoList();
+		return udao.selectUserInfoList(ui);
 	}
 	@Override
 	public UserInfoVO getUserInfo(UserInfoVO ui) {
-			return null;
+			return udao.selectUserInfo(ui);
 	}
 
 
@@ -38,7 +38,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 
 	private boolean isDuplUserInfo(UserInfoVO ui) {
-		if(udao.checkUser(ui)==1) {
+		if(udao.checkUserInfo(ui)==1) {
 			return true;
 		}
 		return false;
@@ -46,7 +46,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Override
 	public void insertUserInfo(Map<String, Object> rMap, UserInfoVO ui) {
 		rMap.put("msg", "회원가입 실패");
-		rMap.put("singupOk", false);
+		rMap.put("signupOk", false);
 		if(isDuplUserInfo(ui)) {
 			rMap.put("msg", ui.getuID() + "는 이미 존재 하는 아디이 입니다.");
 			return;
@@ -55,7 +55,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	
 		if (result == 1) {
 			rMap.put("msg", "회원가입 성공");
-			rMap.put("singupOk", true);
+			rMap.put("signupOk", true);
 		}
 
 	}

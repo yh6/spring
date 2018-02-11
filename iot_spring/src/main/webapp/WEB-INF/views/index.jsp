@@ -7,8 +7,7 @@
 <title>${title}</title>
 </head>
 <body>
-
-  <div id="headerwrap">
+<div id="headerwrap">
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3">
@@ -20,6 +19,7 @@
 	    </div> 
 	</div>
   
+ 
   
 
 
