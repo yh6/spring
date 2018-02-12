@@ -25,7 +25,7 @@ import com.iot.spring.vo.UserInfoVO;
 @Controller
 @RequestMapping("/connection")
 public class ConnectionController {
-	private static final Logger logger = LoggerFactory.getLogger(ConnectionController.class);
+	private static final Logger log = LoggerFactory.getLogger(ConnectionController.class);
 
 	@Autowired
 	private ConnectionService cs;
@@ -50,13 +50,13 @@ public class ConnectionController {
 			map.put("parentId", ciNo);
 		}catch (Exception e) {
 			map.put("error", e.getMessage());
-			logger.error("db connection error =>{}",e);
+			log.error("db connection error =>{}",e);
 		}			
 		return map;
 	}
 	
 	  @RequestMapping(value="/tables/{dbName}/{parentId}", method=RequestMethod.GET)
-	   public @ResponseBody Map<String,Object> getTabeList(
+	   public @ResponseBody Map<String,Object> getTableList(
 	         @PathVariable("dbName")String dbName, 
 	         @PathVariable("parentId")String parentId,
 	         HttpSession hs,
@@ -67,17 +67,17 @@ public class ConnectionController {
 	      return map;
 	   }
 	  
-	@RequestMapping(value = "/column/{dbName}/{tbName}", method = RequestMethod.GET)
-	public @ResponseBody Map<String, Object> getColumnList(@RequestParam Map<String, Object> map) {
-		List<ColumnVO> columnList = cs.getColumnList();
-		map.put("columnList", columnList);
+	@RequestMapping(value = "/columns", method = RequestMethod.GET)
+	public @ResponseBody Map<String, Object> getColumnList(Map<String, Object> map) {
+		/*List<Map<String,Object>> dbList = cs.getDatabaseList();
+		map.put("dbList", dbList);*/
 		return map;
 	}
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public @ResponseBody Map<String, Object> getConnectInfoList(Map<String, Object> map, HttpSession hs) {
 		UserInfoVO ui = new UserInfoVO();
-		if(hs.getAttribute("userInfo")!=null){
-			ui=(UserInfoVO)hs.getAttribute("userInfo");
+		if(hs.getAttribute("user")!=null){
+			ui=(UserInfoVO)hs.getAttribute("user");
 		}else {
 			ui.setuID("red");
 		}

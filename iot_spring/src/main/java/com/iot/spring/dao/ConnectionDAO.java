@@ -15,8 +15,7 @@ public interface ConnectionDAO {
 	
 	ConnectionInfoVO selectConnectionInfo(int ciNo);
 	List<ConnectionInfoVO> selectConnectionInfoList(ConnectionInfoVO ci);
-	int insertConnectionInfo(Map<String,Object> rMap,ConnectionInfoVO ci);
+	int insertConnectionInfo(ConnectionInfoVO ci);
 	List<Map<String,Object>> selectDatabaseList(SqlSession ss) throws Exception;
-	List<ColumnVO> selectColumnList(Map tbName );
 	List<TableVO> selectTableList(SqlSession ss, String dbName);
 }

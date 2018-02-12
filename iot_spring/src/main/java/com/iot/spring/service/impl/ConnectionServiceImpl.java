@@ -30,16 +30,15 @@ public class ConnectionServiceImpl implements ConnectionService {
 
 	@Override
 	public List<ConnectionInfoVO> getConnectionInfoList(ConnectionInfoVO ci) {
-		List<ConnectionInfoVO> List = cdao.selectConnectionInfoList(ci);
-		return List;
+		List<ConnectionInfoVO> ciList = cdao.selectConnectionInfoList(ci);
+		return ciList;
 	}
 
 	@Override
 	public void insertConnectionInfo(Map<String, Object> rMap, ConnectionInfoVO ci) {
-		int result = 0;
-		result = cdao.insertConnectionInfo(rMap, ci);
+		int result = cdao.insertConnectionInfo(ci);
 		rMap.put("msg", "실패");
-		if (result != 0) {
+		if (result ==1) {
 			rMap.put("msg", "성공");
 		}
 
@@ -65,18 +64,5 @@ public class ConnectionServiceImpl implements ConnectionService {
 	      SqlSession ss = (SqlSession)hs.getAttribute("sqlSession");
 	      return cdao.selectTableList(ss, dbName);
 	   }
-
-	@Override
-	public List<ColumnVO> getColumnList(Map tbName) {
-		List<ColumnVO> columnList = cdao.selectColumnList(tbName);
-		return columnList;
-	}
-
-	@Override
-	public List<ColumnVO> getColumnList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 }

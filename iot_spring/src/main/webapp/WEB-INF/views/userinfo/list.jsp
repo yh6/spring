@@ -11,10 +11,10 @@
 	<script>
 		var mygrid = new dhtmlXGridObject('gridbox');
 		mygrid.setImagePath("${dPath}/imgs/");
-		mygrid.setHeader("사번,이름,월급");
+		mygrid.setHeader("번호,아이디,비밀번호,이름,이메일,관리자권한");
 		mygrid.setInitWidths("50,148,200");
-		mygrid.setColAlign("left,left,left");
-		mygrid.setColTypes("ro,ed,ed");
+		mygrid.setColAlign("left,left,left,left,left,left");
+		mygrid.setColTypes("ro,ed,ed,ed,ed,ro");
 		mygrid.setColSorting("int,str,str,str,str,str");
 		mygrid.setColumnIds("uNo,uID,uPwd,uName,uEmail,admin");
 		mygrid.init();

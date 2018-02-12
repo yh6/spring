@@ -28,51 +28,36 @@ public class ConnectionDAOImpl implements ConnectionDAO{
 	}
 
 	@Override
-	public List<ConnectionInfoVO> selectConnectionInfoList(ConnectionInfoVO ci) {	
+	public List<ConnectionInfoVO> selectConnectionInfoList(ConnectionInfoVO ci) {
+		List<ConnectionInfoVO> result = null;
 		SqlSession ss = ssf.openSession();
-		List<ConnectionInfoVO> List = ss.selectList("connection.selectConnectionInfo", ci);		
-	
-		return List;
+		result = ss.selectList("connection.selectConnectionInfo", ci);			
+		return result;
 	}
 
 
 
 	@Override
-	public int insertConnectionInfo(Map<String, Object> rMap, ConnectionInfoVO ci) {
-		SqlSession ss = ssf.openSession();
-		int result = ss.insert("connection.insertConnectionInfo",ci);
+	public int insertConnectionInfo(ConnectionInfoVO ci) {
+		int result = 0;
+		final SqlSession ss = ssf.openSession();
+		result = ss.insert("connection.insertConnectionInfo",ci);
+		ss.close();
 		return result;
 				
 	}
 
 	@Override
-	public List<Map<String, Object>> selectDatabaseList(SqlSession ss) throws Exception {
-		List<Map<String,Object>> result = null;
-		ConnectionInfoVO ci  = ss.selectOne("connection.selectConnectionInfoWithCiNo");
-		ss.close();
-		DBConnector dbc = new DBConnector(ci);
-		ss = dbc.getSqlSession();
-		result = ss.selectList("connection.selectDatabase");
-		ss.close();
-		return result;
+	public List<Map<String, Object>> selectDatabaseList(SqlSession ss) throws Exception {	
+		return ss.selectList("connection.selectDatabase");
+		
 	}
 
 	   @Override
 	   public List<TableVO> selectTableList(SqlSession ss,String dbName) {
 	      List<TableVO> result = null;
-	      result = ss.selectList("connection_info.selectTable",dbName);
+	      result = ss.selectList("connection.selectTable",dbName);
 	      return result;
 	   }
-
-	@Override
-	public List<ColumnVO> selectColumnList(Map tbName) {
-		SqlSession ss = ssf.openSession();
-		List<ColumnVO> columnList  = ss.selectList("connection.selectColumn",tbName);
-		return columnList;
-	}
-
-	
-	
-
 
 }

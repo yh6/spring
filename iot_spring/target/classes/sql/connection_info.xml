@@ -4,19 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="connection">
 	<select id="selectConnectionInfo" parameterType="ci" resultType="ci">
-		select ciNo,ciName,ciUrl,ciPort,ciUser,ciPwd,ciEtc,uID,
+		select ciNo,ciName,ciUrl,ciPort,ciUser,ciPwd,ciEtc,
 		ciNo as id,
-		ciName as text
+		ciName as text,uID
 		from connection_info
 		where uID=#{uID};	
 	</select>
 	
 	<select id="selectConnectionInfoWithCiNo" parameterType="int" resultType="ci">
-		select ciNo,ciName,ciUrl,ciPort,ciUser,ciPwd,ciEtc,uID,
+		select ciNo,ciName,ciUrl,ciPort,ciUser,ciPwd,ciEtc,
 		ciNo as id,
-		ciName as text
+		ciName as text,uID,
 		from connection_info
-		where uID=#{uID};
+		where ciNo=#{ciNo};
 	
 	</select>
 
