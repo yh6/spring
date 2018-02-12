@@ -4,10 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="connection">
 	<select id="selectConnectionInfo" parameterType="ci" resultType="ci">
-		select ciNo ciName,ciUrl,ciPort,ciDatabase,ciUser,ciPwd,ciEtc,uID from
-		connection_info
+		select ciNo,ciName,ciUrl,ciPort,ciUser,ciPwd,ciEtc,uID,
+		ciNo as id,
+		ciName as text
+		from connection_info
+		where uID=#{uID};	
 	</select>
-
+	
+	<select id="selectConnectionInfoWithCiNo" parameterType="int" resultType="ci">
+		select ciNo,ciName,ciUrl,ciPort,ciUser,ciPwd,ciEtc,uID,
+		ciNo as id,
+		ciName as text
+		from connection_info
+		where uID=#{uID};
+	
+	</select>
 
 	<insert id="insertConnectionInfo" parameterType="ci">
 		insert into
@@ -19,7 +30,7 @@
 		show databases
 	</select>
 
-	<select id="selectTable" resultType="map" parameterType="String">
+	<select id="selectTable" resultType="tvo" parameterType="String">
 		select
 		table_name as tableName,
 		table_comment as tableComment,
@@ -27,8 +38,7 @@
 		from
 		information_schema.tables
 		where table_schema=#{dbName}
-		and
-		table_type='base table';
+		and (table_type='BASE TABLE' or table_type='SYSTEM VIEW');
 	</select>
 
 	<select id="selectColumn" resultType="map" parameterType="String">
