@@ -46,7 +46,7 @@ public class ConnectionController {
 		List<Map<String, Object>> dbList;
 		try {
 			dbList =  cs.getDatabaseList(hs, ciNo);
-			map.put("List",dbList);
+			map.put("list",dbList);
 			map.put("parentId", ciNo);
 		}catch (Exception e) {
 			map.put("error", e.getMessage());
@@ -84,7 +84,7 @@ public class ConnectionController {
 		ConnectionInfoVO ci = new ConnectionInfoVO();
 		ci.setuID(ui.getuID());
 		List<ConnectionInfoVO> ciList = cs.getConnectionInfoList(ci);
-		map.put("List", ciList);
+		map.put("list", ciList);
 		return map;
 	}
 }

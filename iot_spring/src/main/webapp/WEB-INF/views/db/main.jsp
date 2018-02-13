@@ -39,6 +39,10 @@ function connectionListCB(res){
 		}
 	});
 }
+
+var au = new AjaxUtil("${root}/connection/list",null,"get");
+au.send(connectionListCB); 
+
 function tableListCB(res){
 	var parentId = res.parentId;
 	var i=1;
@@ -104,8 +108,7 @@ dhtmlxEvent(window,"load",function(){
 			popW.show();
 		}
 	})
-	var au = new AjaxUtil("${root}/connection/list",null,"get");
-	au.send(connectionListCB); 
+	
 	winF = new dhtmlXWindows();
 	popW = winF.createWindow("win1",20,30,320,300);
 	//popW.hide(); 
@@ -144,15 +147,3 @@ dhtmlxEvent(window,"load",function(){
 
 </body>
 </html>
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
-About

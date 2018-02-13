@@ -50,17 +50,18 @@ var AjaxUtilDx = function (url, dxObj, type, dataType){
     	}
 	}
 	
-	this.setCallbackSuccess = function(callback){
-		this.callbackSuccess = callback;
-	}
 	
 	this.send = function(){
+		if(callback){
+			this.callbackSuccess = callback;
+		}
 		$.ajax({ 
 	        type     : this.type
 	    ,   url      : this.url
 	    ,   dataType : this.dataType 
 	    ,   beforeSend: function(xhr) {
-	     
+	    	
+	    	xhr.setRequestHeader("Accept", "application/json");
 	        xhr.setRequestHeader("Content-Type", "application/json");
 	    }
 	    ,   data     : encodeURIComponent(this.param)
@@ -114,9 +115,7 @@ var AjaxUtil = function (url, params, type, dataType){
     	}
 	}
 	
-	this.setCallbackSuccess = function(callback){
-		this.callbackSuccess = callback;
-	}
+
 	
 	this.send = function(callback){
 		if(callback){
@@ -128,6 +127,7 @@ var AjaxUtil = function (url, params, type, dataType){
 	    ,   dataType : this.dataType 
 	    ,   beforeSend: function(xhr) {
 	        
+	    	xhr.setRequestHeader("Accept", "application/json");
 	        xhr.setRequestHeader("Content-Type", "application/json");
 	    }
 	    ,   data     : encodeURIComponent(this.param)
